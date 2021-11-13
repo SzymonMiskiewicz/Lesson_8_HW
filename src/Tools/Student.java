@@ -1,4 +1,4 @@
-package com.engeto.school;
+package Tools;
 
 public class Student {
 

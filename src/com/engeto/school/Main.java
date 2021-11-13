@@ -1,7 +1,14 @@
 package com.engeto.school;
 
+import Data.SchoolException;
+import Tools.SchoolClass;
+import Tools.Student;
+import Tools.Teacher;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static Data.Export.exportToFile;
 
 public class Main {
 
@@ -9,53 +16,33 @@ public class Main {
     public static final String HASHTAGS = "##############################";
 
     public static void main(String[] args) {
+
         //1.
-        SchoolClass sc = new SchoolClass();
-        Export export = new Export();
-        sc.className = "4c";
-        sc.classYear = "4 year";
-        sc.setClassTeacherName("Marian");
-        sc.setClassTeacherSurname("Byk");
-        sc.numberOfStudents = 3;
+        SchoolClass schoolClass = new SchoolClass("4 c"," 4 year", 3);
+        Teacher teacher = new Teacher("Marian ", "Byk");
+        schoolClass.setClassTeacher(teacher);
 
         System.out.println(HASHTAGS);
-        System.out.println(sc.getDescription());
+        schoolClass.printClassDescription();
         System.out.println(HASHTAGS);
-        Student student = new Student();
 
-        List<Student> students = new ArrayList<>();
-        students.add(new Student("ID001","Damian","Krat",2000));
-        students.add(new Student("ID002","Pavel","Kran",2001));
-        students.add(new Student("ID003","Rob","Kras",2000));
-        System.out.println(students + "\n");
+        //2
+        Student damianK = new Student("ID001", "Damian", "Krat", 2000);
+        schoolClass.addStudent(damianK);
+        Student pawelK = new Student("ID002","Paweł", "Kran", 2001);
+        schoolClass.addStudent(pawelK);
+        Student robK = new Student("ID003", "Rob","Kras",2002);
+        schoolClass.addStudent(robK);
 
-        // 2.
-        sc.className = "4c";
-        sc.classYear = "4 year";
-        sc.setClassTeacherName("Marian");
-        sc.setClassTeacherSurname("Byk");
-        System.out.println(sc.descriptionT());
-        sc.student.setId("ID001");
-        sc.student.setName("Damian");
-        sc.student.setSurName("Krat");
-        sc.student.setBirthDay(2000);
-        System.out.println(sc.description());
-        sc.student.setId("ID002");
-        sc.student.setName("Pavel");
-        sc.student.setSurName("Kran");
-        sc.student.setBirthDay(2001);
-        System.out.println(sc.description());
-        sc.student.setId("ID003");
-        sc.student.setName("Rob");
-        sc.student.setSurName("Kras");
-        sc.student.setBirthDay(2000);
-        System.out.println(sc.description());
-
+        schoolClass.printAllStudents();
         //3.
-        try{
-        export.exportToFile("Task 3.txt");
-    }catch (SchoolException e){
-            System.err.println(e.getMessage());}
+        List<SchoolClass>schoolClasses = new ArrayList<>();
+        schoolClasses.add(schoolClass);
+        try {
+            exportToFile("Task 3.txt", schoolClasses);
+        } catch (SchoolException e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -1,8 +1,13 @@
-package com.engeto.school;
+package Tools;
 
 public class Teacher {
     String name;
     String surName;
+
+    public Teacher(String name, String surName){
+        this.name = name;
+        this.surName = surName;
+    }
 
 
     public String getName() {
@@ -21,5 +26,8 @@ public class Teacher {
         this.surName = surName;
     }
 
-
+    @Override
+    public String toString() {
+        return getName() + " " +getSurName();
+    }
 }

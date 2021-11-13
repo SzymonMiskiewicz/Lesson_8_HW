@@ -1,4 +1,4 @@
-package com.engeto.school;
+package Data;
 
 public class SchoolException extends Exception{
     public SchoolException(String message){

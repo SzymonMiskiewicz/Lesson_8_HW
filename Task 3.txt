@@ -1,0 +1,11 @@
+Class: 4 c (Class Year:  4 year)
+Teacher: Marian  Byk
+Number of students: 3
+Student in class: 
+
+ID001 - Damian Krat (2000)
+
+ID002 - Paweł Kran (2001)
+
+ID003 - Rob Kras (2002)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
