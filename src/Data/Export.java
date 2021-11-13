@@ -10,10 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Export {
-    private static final List<SchoolClass> classList = new ArrayList<>();
-    private static final List<Student>students = new ArrayList<>();
 
-    public static void exportToFile(String fileName,List<SchoolClass>schoolClasses) throws SchoolException {
+
+    public static void exportToFile(String fileName, List<SchoolClass>schoolClasses) throws SchoolException {
         try(PrintWriter writer = new PrintWriter(new FileOutputStream(fileName))){
             for( SchoolClass schoolClass: schoolClasses) {
                 writer.println(schoolClass.getClassDescription());
@@ -21,7 +20,7 @@ public class Export {
                 for (Student student:schoolClass.getStudentList()){
                        writer.println(student.toString());
                 }
-                writer.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                writer.println(Student.DESKS);
             }
         }catch (FileNotFoundException e){
             throw new SchoolException("File: "+ fileName+"is not found"+e.getMessage());

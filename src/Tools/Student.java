@@ -2,6 +2,7 @@ package Tools;
 
 public class Student {
 
+    public static final String DESKS = "\n[==][==][==][==][==][==]";
     String name;
     String surName;
     int birthDay;
@@ -55,6 +56,7 @@ public class Student {
         sb.append(name).append(" ");
         sb.append(surName).append(" (");
         sb.append(birthDay).append(")");
+        sb.append(DESKS);
 
         return sb.toString();
     }
