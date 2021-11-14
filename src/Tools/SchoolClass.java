@@ -82,7 +82,7 @@ public class SchoolClass {
     public String getAllStudents(){
         StringBuilder allStudents = new StringBuilder();
         for (Student student:studentList){
-            allStudents.append(student.toString()).append("\n");
+            allStudents.append(student.toString());//;
         }
         return allStudents.toString();
     }

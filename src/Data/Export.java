@@ -18,7 +18,7 @@ public class Export {
                 writer.println(schoolClass.getClassDescription());
                 writer.println("Student in class: ");
                 for (Student student:schoolClass.getStudentList()){
-                       writer.println(student.toString());
+                       writer.println(student.exportToString());
                 }
                 writer.println(Student.DESKS);
             }
