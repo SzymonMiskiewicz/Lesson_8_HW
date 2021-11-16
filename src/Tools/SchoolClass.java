@@ -67,10 +67,14 @@ public class SchoolClass {
 
     public String getClassDescription(){
         StringBuilder stringBuilder = null;
-        stringBuilder =new StringBuilder(
-                "Class: "+className + " (Class Year: "+ classYear +")\n"
-        +"Teacher: " + classTeacher+"\n"
-        +"Number of students: " + numberOfStudents);
+        try {
+            stringBuilder = new StringBuilder(
+                    "Class: " + className + " (Class Year: " + classYear + ")\n"
+                            + "Teacher: " + classTeacher + "\n"
+                            + "Number of students: " + numberOfStudents);
+        }catch (NumberFormatException e){
+            System.err.println("One of parameters not set.");
+        }
         return stringBuilder.toString();
 
     }
